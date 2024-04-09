@@ -20,6 +20,7 @@ public:
 
 		int days = day + (month * 30) + (year * 365);
 		days += number;
+
 		data2.year = days / 365; days -= year * 365;
 		if (days / 30 < 12) {
 			data2.month = days / 30; days -= month * 30;
@@ -46,6 +47,14 @@ public:
 
 		return data2;
 	}
+	int operator - (Date date2) {
+		if ((day + (month * 30) + (year * 365)) > (date2.day + (date2.month * 30) + (date2.year * 365))) {
+			return (day + (month * 30) + (year * 365)) - (date2.day + (date2.month * 30) + (date2.year * 365));
+		}
+		else {
+			return (date2.day + (date2.month * 30) + (date2.year * 365)) - (day + (month * 30) + (year * 365));
+		}
+	}
 	void Print() {
 		cout << "Day " << day << endl;
 		cout << "Month " << month << endl;
@@ -54,10 +63,9 @@ public:
 };
 
 int main() {
-	Date a(9, 4, 2024), b;
+	Date a(9, 4, 2024), b(11,9,2024);
 
-	b = a + 373412;
-	b.Print();
+	
 
 	return 0;
 }
