@@ -21,7 +21,17 @@ public:
 		int days = day + (month * 30) + (year * 365);
 		days += number;
 		data2.year = days / 365; days -= year * 365;
-		data2.month = days / 30; days -= month * 30;
+		if (days / 30 < 12) {
+			data2.month = days / 30; days -= month * 30;
+		}
+		else {
+			for (int i = days / 30; ; i -= 12) {
+				if (i < 12) {
+					data2.month = i;
+					break;
+				}
+			}
+		}
 		if (days < 30) {
 			data2.day = days;
 		}
@@ -46,7 +56,7 @@ public:
 int main() {
 	Date a(9, 4, 2024), b;
 
-	b = a + 32;
+	b = a + 373412;
 	b.Print();
 
 	return 0;
