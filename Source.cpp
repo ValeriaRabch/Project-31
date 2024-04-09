@@ -55,6 +55,10 @@ public:
 			return (date2.day + (date2.month * 30) + (date2.year * 365)) - (day + (month * 30) + (year * 365));
 		}
 	}
+	int& SetGetDay() { return day; }
+	int& SetGetMonth() { return month; }
+	int& SetGetYear() { return year; }
+
 	void Print() {
 		cout << "Day " << day << endl;
 		cout << "Month " << month << endl;
@@ -63,9 +67,16 @@ public:
 };
 
 int main() {
-	Date a(9, 4, 2024), b(11,9,2024);
+	Date a, b;
+	int enter;
 
-	
+	cout << "Enter day "; cin >> enter; a.SetGetDay() = enter;
+	cout << "Enter month "; cin >> enter; a.SetGetMonth() = enter;
+	cout << "Enter year "; cin >> enter; a.SetGetYear() = enter;
+
+	cout << "Enter number "; cin >> enter;
+	b = a + enter;
+	cout << a.SetGetDay() << '.' << a.SetGetMonth() << '.' << a.SetGetYear() << '+' << enter << '=' << b.SetGetDay() << '.' << b.SetGetMonth() << '.' << b.SetGetYear();
 
 	return 0;
 }
