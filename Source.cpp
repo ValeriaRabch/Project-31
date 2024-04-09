@@ -76,7 +76,15 @@ int main() {
 
 	cout << "Enter number "; cin >> enter;
 	b = a + enter;
-	cout << a.SetGetDay() << '.' << a.SetGetMonth() << '.' << a.SetGetYear() << '+' << enter << '=' << b.SetGetDay() << '.' << b.SetGetMonth() << '.' << b.SetGetYear();
+	cout << a.SetGetDay() << '.' << a.SetGetMonth() << '.' << a.SetGetYear() << '+' << enter << '=' << b.SetGetDay() << '.' << b.SetGetMonth() << '.' << b.SetGetYear() << endl;
+
+	cout << "Enter day "; cin >> enter; b.SetGetDay() = enter;
+	cout << "Enter month "; cin >> enter; b.SetGetMonth() = enter;
+	cout << "Enter year "; cin >> enter; b.SetGetYear() = enter;
+
+	int c = a - b;
+
+	cout << a.SetGetDay() << '.' << a.SetGetMonth() << '.' << a.SetGetYear() << '-' << b.SetGetDay() << '.' << b.SetGetMonth() << '.' << b.SetGetYear() << '=' << c << endl;
 
 	return 0;
 }
